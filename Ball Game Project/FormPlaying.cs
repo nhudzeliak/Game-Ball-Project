@@ -28,8 +28,8 @@ namespace Ball_Game_Project
                 );
             rounded_ButtonTheBall.OnHoverButtonColor = rounded_ButtonTheBall.ButtonColor;
             rounded_ButtonTheBall.Location = new Point(
-                    rand.Next(1, Width - rounded_ButtonTheBall.Width - 1),
-                    rand.Next(1, Height - rounded_ButtonTheBall.Height - 1)
+                    rand.Next(1, ClientSize.Width - rounded_ButtonTheBall.Width - 1),
+                    rand.Next(1, ClientSize.Height - rounded_ButtonTheBall.Height - 1)
                 );
             _direction[0] = rand.Next(-_speed, _speed);
             _direction[1] = Convert.ToInt32(Math.Sqrt(Math.Pow(_speed, 2) - Math.Pow(_direction[0], 2)));

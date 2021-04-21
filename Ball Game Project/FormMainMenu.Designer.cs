@@ -29,7 +29,6 @@ namespace Ball_Game_Project
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.buttonRating = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -37,7 +36,6 @@ namespace Ball_Game_Project
             this.labelUsername = new System.Windows.Forms.Label();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonAboutUs = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // buttonPlay
@@ -132,7 +130,6 @@ namespace Ball_Game_Project
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.Button buttonAboutUs;
-        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
