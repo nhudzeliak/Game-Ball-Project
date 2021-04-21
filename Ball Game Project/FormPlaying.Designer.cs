@@ -47,7 +47,7 @@ namespace Ball_Game_Project
             this.rounded_ButtonTheBall.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             this.rounded_ButtonTheBall.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.rounded_ButtonTheBall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rounded_ButtonTheBall.Location = new System.Drawing.Point(325, 112);
+            this.rounded_ButtonTheBall.Location = new System.Drawing.Point(340, 130);
             this.rounded_ButtonTheBall.Name = "rounded_ButtonTheBall";
             this.rounded_ButtonTheBall.OnHoverBorderColor = System.Drawing.Color.White;
             this.rounded_ButtonTheBall.OnHoverButtonColor = System.Drawing.Color.Red;

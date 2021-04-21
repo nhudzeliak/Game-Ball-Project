@@ -60,14 +60,14 @@ namespace Ball_Game_Project
 
         private void rounded_ButtonTheBall_Click(object sender, EventArgs e)
         {
-            if (_score == 5)
+            if (_score == 4)
             {
                 timer1.Stop();
             }
             else
             {
                 spawn();
-                _speed += 4;
+                _speed += 5;
                 _score += 1;
             }
         }
