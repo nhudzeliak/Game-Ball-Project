@@ -7,16 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace Ball_Game_Project
 {
     public partial class FormPlaying : Form
     {
+        private string username;
+        private bool includeRating;
+        private Stream stream;
+
         private int _speed = 1;
         private List<int> _direction = new List<int> { 0, 0 };
         private int _score = 0;
         private static Random rand = new Random();
 
+        DateTime startTime;
+        private Dictionary<string, TimeSpan> playersData;
         private void spawn()
         {
             rounded_ButtonTheBall.Height -= 10;
@@ -53,9 +62,13 @@ namespace Ball_Game_Project
                 _direction[1] = -Math.Abs(_direction[1]);
             }
         }
-        public FormPlaying()
+        public FormPlaying(string username, bool includeRating, Stream stream, Dictionary<string, TimeSpan> playersData)
         {
             InitializeComponent();
+            this.username = username;
+            this.includeRating = includeRating;
+            this.stream = stream;
+            this.playersData = playersData;
         }
 
         private void rounded_ButtonTheBall_Click(object sender, EventArgs e)
@@ -63,6 +76,25 @@ namespace Ball_Game_Project
             if (_score == 4)
             {
                 timer1.Stop();
+                DateTime endTime = DateTime.Now;
+                TimeSpan timeSpan = endTime.Subtract(startTime);
+                if (includeRating)
+                {
+                    if (!playersData.ContainsKey(username))
+                    {
+                        playersData.Add(username, timeSpan);
+                    }
+                    else
+                    {
+                        if(playersData[username] > timeSpan)
+                        {
+                            playersData[username] = timeSpan;
+                        }
+                    }
+                    
+                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Dictionary<string, TimeSpan>));
+                    serializer.WriteObject(stream, playersData);
+                }
             }
             else
             {
@@ -74,7 +106,8 @@ namespace Ball_Game_Project
 
         private void FormPlaying_Load(object sender, EventArgs e)
         {
-            timer1.Start(); 
+            timer1.Start();
+            startTime = DateTime.Now;
             spawn();
         }
 

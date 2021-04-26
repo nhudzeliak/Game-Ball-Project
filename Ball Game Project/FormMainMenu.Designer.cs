@@ -31,7 +31,7 @@ namespace Ball_Game_Project
         {
             this.buttonPlay = new System.Windows.Forms.Button();
             this.buttonRating = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxUser = new System.Windows.Forms.TextBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.buttonSettings = new System.Windows.Forms.Button();
@@ -40,9 +40,9 @@ namespace Ball_Game_Project
             // 
             // buttonPlay
             // 
-            this.buttonPlay.Location = new System.Drawing.Point(339, 227);
+            this.buttonPlay.Location = new System.Drawing.Point(323, 237);
             this.buttonPlay.Name = "buttonPlay";
-            this.buttonPlay.Size = new System.Drawing.Size(148, 41);
+            this.buttonPlay.Size = new System.Drawing.Size(171, 61);
             this.buttonPlay.TabIndex = 0;
             this.buttonPlay.Text = "Play";
             this.buttonPlay.UseVisualStyleBackColor = true;
@@ -50,26 +50,28 @@ namespace Ball_Game_Project
             // 
             // buttonRating
             // 
-            this.buttonRating.Location = new System.Drawing.Point(536, 233);
+            this.buttonRating.Location = new System.Drawing.Point(197, 345);
             this.buttonRating.Name = "buttonRating";
             this.buttonRating.Size = new System.Drawing.Size(119, 35);
             this.buttonRating.TabIndex = 2;
             this.buttonRating.Text = "Rating";
             this.buttonRating.UseVisualStyleBackColor = true;
+            this.buttonRating.Click += new System.EventHandler(this.buttonRating_Click);
             // 
-            // textBox1
+            // textBoxUser
             // 
-            this.textBox1.Location = new System.Drawing.Point(343, 166);
-            this.textBox1.MaxLength = 20;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 26);
-            this.textBox1.TabIndex = 3;
+            this.textBoxUser.Location = new System.Drawing.Point(333, 166);
+            this.textBoxUser.MaxLength = 15;
+            this.textBoxUser.Name = "textBoxUser";
+            this.textBoxUser.Size = new System.Drawing.Size(145, 26);
+            this.textBoxUser.TabIndex = 3;
+            this.textBoxUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTitle.Location = new System.Drawing.Point(317, 53);
+            this.labelTitle.Location = new System.Drawing.Point(324, 62);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(170, 32);
             this.labelTitle.TabIndex = 4;
@@ -86,9 +88,9 @@ namespace Ball_Game_Project
             // 
             // buttonSettings
             // 
-            this.buttonSettings.Location = new System.Drawing.Point(608, 338);
+            this.buttonSettings.Location = new System.Drawing.Point(505, 331);
             this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(84, 31);
+            this.buttonSettings.Size = new System.Drawing.Size(105, 49);
             this.buttonSettings.TabIndex = 6;
             this.buttonSettings.Text = "Settings";
             this.buttonSettings.UseVisualStyleBackColor = true;
@@ -111,7 +113,7 @@ namespace Ball_Game_Project
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxUser);
             this.Controls.Add(this.buttonRating);
             this.Controls.Add(this.buttonPlay);
             this.Name = "FormMainMenu";
@@ -125,7 +127,7 @@ namespace Ball_Game_Project
 
         private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.Button buttonRating;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxUser;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Button buttonSettings;

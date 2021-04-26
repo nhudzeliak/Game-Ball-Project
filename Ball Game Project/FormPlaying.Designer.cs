@@ -52,7 +52,7 @@ namespace Ball_Game_Project
             this.rounded_ButtonTheBall.OnHoverBorderColor = System.Drawing.Color.White;
             this.rounded_ButtonTheBall.OnHoverButtonColor = System.Drawing.Color.Red;
             this.rounded_ButtonTheBall.OnHoverTextColor = System.Drawing.Color.White;
-            this.rounded_ButtonTheBall.Size = new System.Drawing.Size(150, 150);
+            this.rounded_ButtonTheBall.Size = new System.Drawing.Size(140, 140);
             this.rounded_ButtonTheBall.TabIndex = 0;
             this.rounded_ButtonTheBall.TextColor = System.Drawing.Color.White;
             this.rounded_ButtonTheBall.UseVisualStyleBackColor = true;
