@@ -17,7 +17,8 @@ namespace Ball_Game_Project
     {
         public string currentPlayer;
         private bool goesToRating = true;
-        private Stream stream = new FileStream("data.json", FileMode.OpenOrCreate);
+        private Stream stream = new FileStream("data.json", FileMode.Open);
+        private string file = "data.json";
 
         private Dictionary<string, TimeSpan> playersData;
         public FormMainMenu()
@@ -26,6 +27,7 @@ namespace Ball_Game_Project
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Dictionary<string, TimeSpan>));
             stream.Position = 0;
             this.playersData = (Dictionary<string, TimeSpan>)serializer.ReadObject(stream);
+            stream.Close();
         }
 
         private void buttonPlay_Click(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace Ball_Game_Project
                 if (result == DialogResult.Yes)
                 {
                     goesToRating = false;
-                    FormPlaying playing = new FormPlaying(currentPlayer, false, stream, playersData);
+                    FormPlaying playing = new FormPlaying(currentPlayer, false, file, playersData);
                     //this.Hide();
                     playing.Show();
                 }
@@ -48,7 +50,7 @@ namespace Ball_Game_Project
             else
             {
                 goesToRating = true;
-                FormPlaying playing = new FormPlaying(currentPlayer, true, stream, playersData);
+                FormPlaying playing = new FormPlaying(currentPlayer, true, file, playersData);
                 //this.Hide();
                 playing.Show();
             }

@@ -17,7 +17,7 @@ namespace Ball_Game_Project
     {
         private string username;
         private bool includeRating;
-        private Stream stream;
+        private string file;
 
         private int _speed = 1;
         private List<int> _direction = new List<int> { 0, 0 };
@@ -62,12 +62,12 @@ namespace Ball_Game_Project
                 _direction[1] = -Math.Abs(_direction[1]);
             }
         }
-        public FormPlaying(string username, bool includeRating, Stream stream, Dictionary<string, TimeSpan> playersData)
+        public FormPlaying(string username, bool includeRating, string file, Dictionary<string, TimeSpan> playersData)
         {
             InitializeComponent();
             this.username = username;
             this.includeRating = includeRating;
-            this.stream = stream;
+            this.file = file;
             this.playersData = playersData;
         }
 
@@ -93,6 +93,7 @@ namespace Ball_Game_Project
                     }
                     
                     DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Dictionary<string, TimeSpan>));
+                    Stream stream = new FileStream(file, FileMode.Create);
                     serializer.WriteObject(stream, playersData);
                 }
             }
