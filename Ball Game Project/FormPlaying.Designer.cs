@@ -31,13 +31,35 @@ namespace Ball_Game_Project
         {
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.rounded_ButtonTheBall = new Ball_Game_Project.Rounded_Button();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
             // 
             this.timer1.Interval = 70;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.rounded_ButtonTheBall);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
+            this.splitContainer1.SplitterDistance = 163;
+            this.splitContainer1.SplitterWidth = 1;
+            this.splitContainer1.TabIndex = 1;
             // 
             // rounded_ButtonTheBall
             // 
@@ -47,7 +69,7 @@ namespace Ball_Game_Project
             this.rounded_ButtonTheBall.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             this.rounded_ButtonTheBall.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.rounded_ButtonTheBall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rounded_ButtonTheBall.Location = new System.Drawing.Point(340, 130);
+            this.rounded_ButtonTheBall.Location = new System.Drawing.Point(264, 174);
             this.rounded_ButtonTheBall.Name = "rounded_ButtonTheBall";
             this.rounded_ButtonTheBall.OnHoverBorderColor = System.Drawing.Color.White;
             this.rounded_ButtonTheBall.OnHoverButtonColor = System.Drawing.Color.Red;
@@ -64,10 +86,13 @@ namespace Ball_Game_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.rounded_ButtonTheBall);
+            this.Controls.Add(this.splitContainer1);
             this.Name = "FormPlaying";
             this.Text = "Ball Game";
             this.Load += new System.EventHandler(this.FormPlaying_Load);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -75,5 +100,6 @@ namespace Ball_Game_Project
         #endregion
         private System.Windows.Forms.Timer timer1;
         private Rounded_Button rounded_ButtonTheBall;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

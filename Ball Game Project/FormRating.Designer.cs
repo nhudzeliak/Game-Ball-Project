@@ -29,32 +29,32 @@ namespace Ball_Game_Project
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTable = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.ColumnPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPlayer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBestTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewTable
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTable.AllowUserToAddRows = false;
+            this.dataGridViewTable.AllowUserToDeleteRows = false;
+            this.dataGridViewTable.AllowUserToResizeColumns = false;
+            this.dataGridViewTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnPlace,
             this.ColumnPlayer,
             this.ColumnBestTime});
-            this.dataGridView1.Location = new System.Drawing.Point(34, 73);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(400, 439);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewTable.Location = new System.Drawing.Point(34, 73);
+            this.dataGridViewTable.Name = "dataGridViewTable";
+            this.dataGridViewTable.ReadOnly = true;
+            this.dataGridViewTable.RowHeadersVisible = false;
+            this.dataGridViewTable.RowHeadersWidth = 62;
+            this.dataGridViewTable.RowTemplate.Height = 28;
+            this.dataGridViewTable.Size = new System.Drawing.Size(400, 439);
+            this.dataGridViewTable.TabIndex = 0;
             // 
             // label1
             // 
@@ -71,7 +71,7 @@ namespace Ball_Game_Project
             this.ColumnPlace.MinimumWidth = 8;
             this.ColumnPlace.Name = "ColumnPlace";
             this.ColumnPlace.ReadOnly = true;
-            this.ColumnPlace.Width = 50;
+            this.ColumnPlace.Width = 40;
             // 
             // ColumnPlayer
             // 
@@ -79,7 +79,6 @@ namespace Ball_Game_Project
             this.ColumnPlayer.MinimumWidth = 8;
             this.ColumnPlayer.Name = "ColumnPlayer";
             this.ColumnPlayer.ReadOnly = true;
-            this.ColumnPlayer.Width = 113;
             // 
             // ColumnBestTime
             // 
@@ -87,6 +86,7 @@ namespace Ball_Game_Project
             this.ColumnBestTime.MinimumWidth = 8;
             this.ColumnBestTime.Name = "ColumnBestTime";
             this.ColumnBestTime.ReadOnly = true;
+            this.ColumnBestTime.Width = 130;
             // 
             // FormRating
             // 
@@ -94,10 +94,14 @@ namespace Ball_Game_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 544);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewTable);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(500, 600);
             this.Name = "FormRating";
             this.Text = "Rating";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FormRating_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,7 +109,7 @@ namespace Ball_Game_Project
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewTable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPlace;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPlayer;

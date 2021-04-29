@@ -58,8 +58,19 @@ namespace Ball_Game_Project
 
         private void buttonRating_Click(object sender, EventArgs e)
         {
-            FormRating formRating = new FormRating();
+            FormRating formRating = new FormRating(file);
+            
             formRating.Show();
+        }
+
+        private void FormMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

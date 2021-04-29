@@ -37,8 +37,8 @@ namespace Ball_Game_Project
                 );
             rounded_ButtonTheBall.OnHoverButtonColor = rounded_ButtonTheBall.ButtonColor;
             rounded_ButtonTheBall.Location = new Point(
-                    rand.Next(1, ClientSize.Width - rounded_ButtonTheBall.Width - 1),
-                    rand.Next(1, ClientSize.Height - rounded_ButtonTheBall.Height - 1)
+                    rand.Next(1, splitContainer1.ClientSize.Width - (splitContainer1.SplitterDistance + splitContainer1.SplitterWidth) - rounded_ButtonTheBall.Width - 1),
+                    rand.Next(1, splitContainer1.ClientSize.Height - rounded_ButtonTheBall.Height - 1)
                 );
             _direction[0] = rand.Next(-_speed, _speed);
             _direction[1] = Convert.ToInt32(Math.Sqrt(Math.Pow(_speed, 2) - Math.Pow(_direction[0], 2)));
@@ -49,7 +49,8 @@ namespace Ball_Game_Project
             {
                 _direction[0] = Math.Abs(_direction[0]);
             }
-            if (rounded_ButtonTheBall.Location.X + _direction[0] >= ClientSize.Width - rounded_ButtonTheBall.Width)
+            if (rounded_ButtonTheBall.Location.X + _direction[0] >= splitContainer1.ClientSize.Width -
+                (splitContainer1.SplitterDistance + splitContainer1.SplitterWidth) - rounded_ButtonTheBall.Width)
             {
                 _direction[0] = -Math.Abs(_direction[0]);
             }
@@ -57,7 +58,7 @@ namespace Ball_Game_Project
             {
                 _direction[1] = Math.Abs(_direction[1]);
             }
-            if (rounded_ButtonTheBall.Location.Y + _direction[1] >= ClientSize.Height - rounded_ButtonTheBall.Height)
+            if (rounded_ButtonTheBall.Location.Y + _direction[1] >= splitContainer1.ClientSize.Height - rounded_ButtonTheBall.Height)
             {
                 _direction[1] = -Math.Abs(_direction[1]);
             }
@@ -93,14 +94,15 @@ namespace Ball_Game_Project
                     }
                     
                     DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Dictionary<string, TimeSpan>));
-                    Stream stream = new FileStream(file, FileMode.Create);
-                    serializer.WriteObject(stream, playersData);
+                    Stream stream1 = new FileStream(file, FileMode.Create);
+                    serializer.WriteObject(stream1, playersData);
+                    stream1.Close();
                 }
             }
             else
             {
                 spawn();
-                _speed += 5;
+                _speed += 6;
                 _score += 1;
             }
         }
