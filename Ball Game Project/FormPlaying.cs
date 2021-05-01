@@ -19,7 +19,7 @@ namespace Ball_Game_Project
         private bool includeRating;
         private string file;
 
-        private int _speed = 1;
+        private int _speed = 2;
         private List<int> _direction = new List<int> { 0, 0 };
         private int _score = 0;
         private static Random rand = new Random();
@@ -74,22 +74,31 @@ namespace Ball_Game_Project
 
         private void rounded_ButtonTheBall_Click(object sender, EventArgs e)
         {
+            labelScoreShow.Text = $"{_score+1}";
             if (_score == 4)
             {
-                timer1.Stop();
                 DateTime endTime = DateTime.Now;
-                TimeSpan timeSpan = endTime.Subtract(startTime);
+                timer1.Stop();
+                timer2.Stop();
+
+                TimeSpan timeSpan = TimeSpan.Parse(labelTimeShow.Text);
                 if (includeRating)
                 {
                     if (!playersData.ContainsKey(username))
                     {
                         playersData.Add(username, timeSpan);
+                        FormRecord record = new FormRecord(timeSpan);
+
+                        record.Show();
                     }
                     else
                     {
                         if(playersData[username] > timeSpan)
                         {
                             playersData[username] = timeSpan;
+                            FormRecord record = new FormRecord(timeSpan);
+                            
+                            record.Show();
                         }
                     }
                     
@@ -103,13 +112,14 @@ namespace Ball_Game_Project
             {
                 spawn();
                 _speed += 6;
-                _score += 1;
+                _score += 1;     
             }
         }
 
         private void FormPlaying_Load(object sender, EventArgs e)
         {
             timer1.Start();
+            timer2.Start();
             startTime = DateTime.Now;
             spawn();
         }
@@ -121,6 +131,25 @@ namespace Ball_Game_Project
                     rounded_ButtonTheBall.Location.Y + _direction[1]
                 );
             bounce();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            DateTime timeNow = DateTime.Now;
+            TimeSpan timeSpan1ms = timeNow.Subtract(startTime);
+            labelTimeShow.Text = timeSpan1ms.ToString();
+        }
+
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonRestart_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormPlaying newGame = new FormPlaying(username, includeRating, file, playersData);
+            newGame.Show();
         }
     }
 }

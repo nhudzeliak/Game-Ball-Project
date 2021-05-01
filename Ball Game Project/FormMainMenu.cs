@@ -29,13 +29,23 @@ namespace Ball_Game_Project
             this.playersData = (Dictionary<string, TimeSpan>)serializer.ReadObject(stream);
             stream.Close();
         }
+     
+        private void FormMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
 
-        private void buttonPlay_Click(object sender, EventArgs e)
+        private void rounded_ButtonPlay_Click(object sender, EventArgs e)
         {
             currentPlayer = textBoxUser.Text;
             if (currentPlayer == String.Empty)
             {
-                DialogResult result =  MessageBox.Show("If you do not enter your name your result will not be" +
+                DialogResult result = MessageBox.Show("If you do not enter your name your result will not be" +
                     " displayed in the rating. Continue anyway?",
                     "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
@@ -56,21 +66,17 @@ namespace Ball_Game_Project
             }
         }
 
-        private void buttonRating_Click(object sender, EventArgs e)
+        private void rounded_ButtonRating_Click(object sender, EventArgs e)
         {
             FormRating formRating = new FormRating(file);
-            
+
             formRating.Show();
         }
 
-        private void FormMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            FormRecord record = new FormRecord(new TimeSpan());
+            record.Show();
         }
     }
 }
