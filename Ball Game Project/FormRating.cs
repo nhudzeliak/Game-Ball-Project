@@ -35,7 +35,7 @@ namespace Ball_Game_Project
             int place = 1;
             foreach (var pair in sortedCurrentRating)
             {
-                dataGridViewTable.Rows.Add(place, pair.Key, String.Format(@"{0:hh\:mm\:ss\.fff}", pair.Value));
+                dataGridViewTable.Rows.Add(place, pair.Key, String.Format(@"{0:hh\:mm\:ss\.ffff}", pair.Value));
                 if (place == 1)
                 {
                     dataGridViewTable.Rows[0].DefaultCellStyle.BackColor = Color.Gold;

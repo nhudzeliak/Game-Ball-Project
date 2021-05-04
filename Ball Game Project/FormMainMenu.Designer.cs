@@ -30,20 +30,23 @@ namespace Ball_Game_Project
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.textBoxUser = new System.Windows.Forms.TextBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.rounded_Button1 = new Ball_Game_Project.Rounded_Button();
+            this.buttonLight = new System.Windows.Forms.Button();
+            this.buttonDark = new System.Windows.Forms.Button();
+            this.rounded_ButtonHowToPlay = new Ball_Game_Project.Rounded_Button();
             this.rounded_ButtonRating = new Ball_Game_Project.Rounded_Button();
             this.rounded_ButtonPlay = new Ball_Game_Project.Rounded_Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxUser
             // 
-            this.textBoxUser.Location = new System.Drawing.Point(319, 246);
+            this.textBoxUser.Location = new System.Drawing.Point(333, 246);
             this.textBoxUser.MaxLength = 15;
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(145, 26);
@@ -56,7 +59,7 @@ namespace Ball_Game_Project
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Ravie", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(233, 81);
+            this.labelTitle.Location = new System.Drawing.Point(244, 79);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(342, 81);
             this.labelTitle.TabIndex = 4;
@@ -67,30 +70,62 @@ namespace Ball_Game_Project
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Britannic Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.ForeColor = System.Drawing.Color.White;
-            this.labelUsername.Location = new System.Drawing.Point(205, 250);
+            this.labelUsername.Location = new System.Drawing.Point(216, 247);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(99, 22);
             this.labelUsername.TabIndex = 5;
             this.labelUsername.Text = "Username";
             // 
-            // rounded_Button1
+            // buttonLight
             // 
-            this.rounded_Button1.BorderColor = System.Drawing.Color.Orange;
-            this.rounded_Button1.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.rounded_Button1.FlatAppearance.BorderSize = 0;
-            this.rounded_Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rounded_Button1.Font = new System.Drawing.Font("Britannic Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rounded_Button1.Location = new System.Drawing.Point(12, 12);
-            this.rounded_Button1.Name = "rounded_Button1";
-            this.rounded_Button1.OnHoverBorderColor = System.Drawing.Color.LightSkyBlue;
-            this.rounded_Button1.OnHoverButtonColor = System.Drawing.Color.Orange;
-            this.rounded_Button1.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
-            this.rounded_Button1.Size = new System.Drawing.Size(175, 60);
-            this.rounded_Button1.TabIndex = 11;
-            this.rounded_Button1.Text = "Settings";
-            this.rounded_Button1.TextColor = System.Drawing.Color.White;
-            this.toolTip1.SetToolTip(this.rounded_Button1, "Edit the style");
-            this.rounded_Button1.UseVisualStyleBackColor = true;
+            this.buttonLight.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonLight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLight.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLight.ForeColor = System.Drawing.Color.Orange;
+            this.buttonLight.Location = new System.Drawing.Point(654, 55);
+            this.buttonLight.Name = "buttonLight";
+            this.buttonLight.Size = new System.Drawing.Size(88, 60);
+            this.buttonLight.TabIndex = 14;
+            this.buttonLight.Text = "Light";
+            this.toolTip1.SetToolTip(this.buttonLight, "Choose light scheme");
+            this.buttonLight.UseVisualStyleBackColor = false;
+            this.buttonLight.Click += new System.EventHandler(this.buttonLight_Click);
+            // 
+            // buttonDark
+            // 
+            this.buttonDark.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.buttonDark.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonDark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDark.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDark.ForeColor = System.Drawing.Color.Orange;
+            this.buttonDark.Location = new System.Drawing.Point(654, 125);
+            this.buttonDark.Name = "buttonDark";
+            this.buttonDark.Size = new System.Drawing.Size(88, 60);
+            this.buttonDark.TabIndex = 15;
+            this.buttonDark.Text = "Dark";
+            this.toolTip1.SetToolTip(this.buttonDark, "Choose dark scheme");
+            this.buttonDark.UseVisualStyleBackColor = false;
+            this.buttonDark.Click += new System.EventHandler(this.buttonDark_Click);
+            // 
+            // rounded_ButtonHowToPlay
+            // 
+            this.rounded_ButtonHowToPlay.BorderColor = System.Drawing.Color.Orange;
+            this.rounded_ButtonHowToPlay.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.rounded_ButtonHowToPlay.FlatAppearance.BorderSize = 0;
+            this.rounded_ButtonHowToPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rounded_ButtonHowToPlay.Font = new System.Drawing.Font("Britannic Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rounded_ButtonHowToPlay.Location = new System.Drawing.Point(12, 12);
+            this.rounded_ButtonHowToPlay.Name = "rounded_ButtonHowToPlay";
+            this.rounded_ButtonHowToPlay.OnHoverBorderColor = System.Drawing.Color.LightSkyBlue;
+            this.rounded_ButtonHowToPlay.OnHoverButtonColor = System.Drawing.Color.Orange;
+            this.rounded_ButtonHowToPlay.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
+            this.rounded_ButtonHowToPlay.Size = new System.Drawing.Size(175, 60);
+            this.rounded_ButtonHowToPlay.TabIndex = 11;
+            this.rounded_ButtonHowToPlay.Text = "How to play";
+            this.rounded_ButtonHowToPlay.TextColor = System.Drawing.Color.White;
+            this.toolTip1.SetToolTip(this.rounded_ButtonHowToPlay, "Edit the style");
+            this.rounded_ButtonHowToPlay.UseVisualStyleBackColor = true;
+            this.rounded_ButtonHowToPlay.Click += new System.EventHandler(this.rounded_ButtonHowToPlay_Click);
             // 
             // rounded_ButtonRating
             // 
@@ -99,7 +134,7 @@ namespace Ball_Game_Project
             this.rounded_ButtonRating.FlatAppearance.BorderSize = 0;
             this.rounded_ButtonRating.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rounded_ButtonRating.Font = new System.Drawing.Font("Britannic Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rounded_ButtonRating.Location = new System.Drawing.Point(613, 21);
+            this.rounded_ButtonRating.Location = new System.Drawing.Point(12, 124);
             this.rounded_ButtonRating.Name = "rounded_ButtonRating";
             this.rounded_ButtonRating.OnHoverBorderColor = System.Drawing.Color.LightSkyBlue;
             this.rounded_ButtonRating.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -119,7 +154,7 @@ namespace Ball_Game_Project
             this.rounded_ButtonPlay.FlatAppearance.BorderSize = 0;
             this.rounded_ButtonPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rounded_ButtonPlay.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rounded_ButtonPlay.Location = new System.Drawing.Point(284, 324);
+            this.rounded_ButtonPlay.Location = new System.Drawing.Point(300, 324);
             this.rounded_ButtonPlay.Name = "rounded_ButtonPlay";
             this.rounded_ButtonPlay.OnHoverBorderColor = System.Drawing.Color.LightSkyBlue;
             this.rounded_ButtonPlay.OnHoverButtonColor = System.Drawing.Color.Orange;
@@ -137,21 +172,22 @@ namespace Ball_Game_Project
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Britannic Bold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(299, 177);
+            this.label1.Location = new System.Drawing.Point(309, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 25);
             this.label1.TabIndex = 8;
             this.label1.Text = "Click and speed up";
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(561, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 93);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(664, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 27);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Style";
             // 
             // FormMainMenu
             // 
@@ -159,17 +195,22 @@ namespace Ball_Game_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(24)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.rounded_Button1);
+            this.Controls.Add(this.buttonDark);
+            this.Controls.Add(this.buttonLight);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.rounded_ButtonHowToPlay);
             this.Controls.Add(this.rounded_ButtonRating);
             this.Controls.Add(this.rounded_ButtonPlay);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.textBoxUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormMainMenu";
             this.Text = "Main Menu";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMainMenu_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,8 +224,10 @@ namespace Ball_Game_Project
         private System.Windows.Forms.Label label1;
         private Rounded_Button rounded_ButtonPlay;
         private Rounded_Button rounded_ButtonRating;
-        private Rounded_Button rounded_Button1;
-        private System.Windows.Forms.Button button1;
+        private Rounded_Button rounded_ButtonHowToPlay;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonLight;
+        private System.Windows.Forms.Button buttonDark;
     }
 }
 

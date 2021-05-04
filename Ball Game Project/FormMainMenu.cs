@@ -19,25 +19,17 @@ namespace Ball_Game_Project
         private bool goesToRating = true;
         private Stream stream = new FileStream("data.json", FileMode.Open);
         private string file = "data.json";
+        private bool light;
 
         private Dictionary<string, TimeSpan> playersData;
-        public FormMainMenu()
+        public FormMainMenu(bool light=false)
         {
             InitializeComponent();
+            this.light = light;
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(Dictionary<string, TimeSpan>));
             stream.Position = 0;
             this.playersData = (Dictionary<string, TimeSpan>)serializer.ReadObject(stream);
             stream.Close();
-        }
-     
-        private void FormMainMenu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
         }
 
         private void rounded_ButtonPlay_Click(object sender, EventArgs e)
@@ -51,7 +43,7 @@ namespace Ball_Game_Project
                 if (result == DialogResult.Yes)
                 {
                     goesToRating = false;
-                    FormPlaying playing = new FormPlaying(currentPlayer, false, file, playersData);
+                    FormPlaying playing = new FormPlaying(currentPlayer, false, file, playersData, light);
                     //this.Hide();
                     playing.Show();
                 }
@@ -60,7 +52,7 @@ namespace Ball_Game_Project
             else
             {
                 goesToRating = true;
-                FormPlaying playing = new FormPlaying(currentPlayer, true, file, playersData);
+                FormPlaying playing = new FormPlaying(currentPlayer, true, file, playersData, light);
                 //this.Hide();
                 playing.Show();
             }
@@ -77,6 +69,26 @@ namespace Ball_Game_Project
         {
             FormRecord record = new FormRecord(new TimeSpan());
             record.Show();
+        }
+     
+        private void rounded_ButtonHowToPlay_Click(object sender, EventArgs e)
+        {
+            FormHowToPlay howToPlay = new FormHowToPlay();
+            howToPlay.Show();
+        }
+
+        private void buttonLight_Click(object sender, EventArgs e)
+        {
+            buttonLight.BackColor = Color.MediumTurquoise;
+            buttonDark.BackColor = Color.FromArgb(64, 64, 64);
+            light = true;
+        }
+
+        private void buttonDark_Click(object sender, EventArgs e)
+        {
+            buttonLight.BackColor = Color.WhiteSmoke;
+            buttonDark.BackColor = Color.MediumTurquoise;
+            light = false;
         }
     }
 }

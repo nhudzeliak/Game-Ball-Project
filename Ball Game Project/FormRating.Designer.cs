@@ -29,11 +29,12 @@ namespace Ball_Game_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRating));
             this.dataGridViewTable = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.ColumnPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPlayer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBestTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,17 +57,6 @@ namespace Ball_Game_Project
             this.dataGridViewTable.RowTemplate.Height = 28;
             this.dataGridViewTable.Size = new System.Drawing.Size(400, 439);
             this.dataGridViewTable.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Britannic Bold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(217, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Best players";
             // 
             // ColumnPlace
             // 
@@ -92,6 +82,17 @@ namespace Ball_Game_Project
             this.ColumnBestTime.ReadOnly = true;
             this.ColumnBestTime.Width = 110;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Britannic Bold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(217, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Best players";
+            // 
             // FormRating
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -101,6 +102,7 @@ namespace Ball_Game_Project
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(500, 600);
             this.Name = "FormRating";

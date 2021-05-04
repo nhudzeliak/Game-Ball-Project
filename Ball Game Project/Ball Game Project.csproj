@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormHowToPlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHowToPlay.Designer.cs">
+      <DependentUpon>FormHowToPlay.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="RoundButton1.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="FormHowToPlay.resx">
+      <DependentUpon>FormHowToPlay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
     </EmbeddedResource>

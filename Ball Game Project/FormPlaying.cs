@@ -18,6 +18,7 @@ namespace Ball_Game_Project
         private string username;
         private bool includeRating;
         private string file;
+        private bool light;
 
         private int _speed = 2;
         private List<int> _direction = new List<int> { 0, 0 };
@@ -63,13 +64,14 @@ namespace Ball_Game_Project
                 _direction[1] = -Math.Abs(_direction[1]);
             }
         }
-        public FormPlaying(string username, bool includeRating, string file, Dictionary<string, TimeSpan> playersData)
+        public FormPlaying(string username, bool includeRating, string file, Dictionary<string, TimeSpan> playersData, bool light)
         {
             InitializeComponent();
             this.username = username;
             this.includeRating = includeRating;
             this.file = file;
             this.playersData = playersData;
+            this.light = light;
         }
 
         private void rounded_ButtonTheBall_Click(object sender, EventArgs e)
@@ -121,6 +123,28 @@ namespace Ball_Game_Project
             timer1.Start();
             timer2.Start();
             startTime = DateTime.Now;
+            if (this.light)
+            {
+                splitContainer1.Panel1.BackColor = Color.WhiteSmoke;
+                labelTime.ForeColor = Color.FromArgb(9, 24, 34);
+                labelTimeShow.ForeColor = Color.FromArgb(9, 24, 34);
+                labelScore.ForeColor = Color.FromArgb(9, 24, 34);
+                labelScoreShow.ForeColor = Color.FromArgb(9, 24, 34);
+                splitContainer1.Panel2.BackColor = Color.WhiteSmoke;
+                buttonHome.BackColor = Color.WhiteSmoke;             
+            }
+            else
+            {
+                splitContainer1.Panel1.BackColor = Color.FromArgb(9, 24, 34);
+                labelTime.ForeColor = Color.White;
+                labelTimeShow.ForeColor = Color.White;
+                labelScore.ForeColor = Color.White;
+                labelScoreShow.ForeColor = Color.White;
+                splitContainer1.Panel2.BackColor = Color.WhiteSmoke;
+                buttonHome.BackColor = Color.FromArgb(9, 24, 34);
+            }
+            buttonRestart.Location = new Point(20, 315);
+            buttonHome.Location = new Point(20, 390);
             spawn();
         }
 
@@ -148,8 +172,9 @@ namespace Ball_Game_Project
         private void buttonRestart_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormPlaying newGame = new FormPlaying(username, includeRating, file, playersData);
+            FormPlaying newGame = new FormPlaying(username, includeRating, file, playersData, light);
             newGame.Show();
         }
+
     }
 }
