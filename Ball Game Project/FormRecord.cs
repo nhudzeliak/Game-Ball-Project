@@ -21,7 +21,7 @@ namespace Ball_Game_Project
 
         private void FormRecord_Load(object sender, EventArgs e)
         {
-            label3.Text = String.Format(@"{0:hh\:mm\:ss\.fff}", timeSpan);
+            label3.Text = String.Format(@"{0:hh\:mm\:ss\.ffff}", timeSpan);
         }
     }
 }

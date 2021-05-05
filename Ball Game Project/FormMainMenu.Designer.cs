@@ -123,7 +123,7 @@ namespace Ball_Game_Project
             this.rounded_ButtonHowToPlay.TabIndex = 11;
             this.rounded_ButtonHowToPlay.Text = "How to play";
             this.rounded_ButtonHowToPlay.TextColor = System.Drawing.Color.White;
-            this.toolTip1.SetToolTip(this.rounded_ButtonHowToPlay, "Edit the style");
+            this.toolTip1.SetToolTip(this.rounded_ButtonHowToPlay, "Game rules");
             this.rounded_ButtonHowToPlay.UseVisualStyleBackColor = true;
             this.rounded_ButtonHowToPlay.Click += new System.EventHandler(this.rounded_ButtonHowToPlay_Click);
             // 
